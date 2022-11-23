@@ -31,6 +31,6 @@ public class first {
         System.out.print(y + " лет, ");
         System.out.print(m + " месяцев и ");
         System.out.print(d + " дней");
-
+        in.close();
     }
 }
