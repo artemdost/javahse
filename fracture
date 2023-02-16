@@ -1,0 +1,91 @@
+package com.company;
+
+import java.util.Scanner;
+
+class Fracture2 {
+    public int num, den;
+
+    public Fracture2() {
+        num = 1;
+        den = 1;
+    }
+
+    public Fracture2(int a, int b) throws Exception {
+        if (b != 0) {
+            num = a;
+            den = b;
+        } else {
+            throw new Exception("Ну не делится на ноль!!!");
+        }
+    }
+
+    public void currentfrac() {
+        System.out.println("Результат: " + num + "/" + den);
+    }
+    public void sum(int a, int b, int c, int d) {
+        System.out.println("Результат: " + (a * d + b * c) + "/" + b * d);
+    }
+    public void min(int a, int b, int c, int d) {
+        System.out.println("Результат: " + (a * d - b * c) + "/" + b * d);
+    }
+    public void umnog(int a, int b, int c, int d) {
+        System.out.println("Результат: " + (a * c) + "/" + b * d);
+    }
+    public void del(int a, int b, int c, int d) {
+        System.out.println("Результат: " + (a * d) + "/" + c * b);
+    }
+
+
+}
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        int numerator, denominator;
+        Scanner in = new Scanner(System.in);
+
+        // дробь по умолчанию
+        Fracture2 frac1 = new Fracture2();
+        frac1.currentfrac();
+
+        // создание дроби
+        try {
+            System.out.println("Введите целые значения числителя и знаменателя:");
+            Fracture2 frac2 = new Fracture2(in.nextInt(), in.nextInt());
+            frac2.currentfrac();
+        } catch(Exception e) {
+            System.out.println("Еще разок, ошибка очевидна):");
+            Fracture2 frac2 = new Fracture2(in.nextInt(), in.nextInt());
+            frac2.currentfrac();
+        }
+        // сложение дробей
+        System.out.println("Сложение - Введите целые значения числителя и знаменателя первой дроби:");
+        Fracture2 frac3 = new Fracture2(in.nextInt(), in.nextInt());
+        System.out.println("Введите целые значения числителя и знаменателя второй дроби:");
+        Fracture2 frac4 = new Fracture2(in.nextInt(), in.nextInt());
+        frac3.sum(frac3.num, frac3.den, frac4.num, frac4.den);
+
+
+        // вычитание дробей
+        System.out.println("Вычитание - Введите целые значения числителя и знаменателя первой дроби:");
+        Fracture2 frac5 = new Fracture2(in.nextInt(), in.nextInt());
+        System.out.println("Введите целые значения числителя и знаменателя второй дроби:");
+        Fracture2 frac6 = new Fracture2(in.nextInt(), in.nextInt());
+        frac5.min(frac5.num, frac5.den, frac6.num, frac6.den);
+
+        // умножение
+        System.out.println("Умножение - Введите целые значения числителя и знаменателя первой дроби:");
+        Fracture2 frac7 = new Fracture2(in.nextInt(), in.nextInt());
+        System.out.println("Введите целые значения числителя и знаменателя второй дроби:");
+        Fracture2 frac8 = new Fracture2(in.nextInt(), in.nextInt());
+        frac7.umnog(frac7.num, frac7.den, frac8.num, frac8.den);
+
+        // деление
+        System.out.println("Деление - Введите целые значения числителя и знаменателя первой дроби:");
+        Fracture2 frac9 = new Fracture2(in.nextInt(), in.nextInt());
+        System.out.println("Введите целые значения числителя и знаменателя второй дроби:");
+        Fracture2 frac10 = new Fracture2(in.nextInt(), in.nextInt());
+        frac9.umnog(frac9.num, frac9.den, frac10.num, frac10.den);
+
+
+    }
+}
